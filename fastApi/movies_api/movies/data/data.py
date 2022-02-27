@@ -12,18 +12,18 @@ def get_data() -> List[Movie]:
     raw_data = load_from_csv()
     return [
         Movie(
-            show_id=row.get("show_id"),
             type=row.get("type"),
-            title=row.get("title"),
-            director=row.get("director"),
             cast=row.get("cast"),
-            country=row.get("country"),
-            date_added=row.get("date_added"),
-            release_year=row.get("release_year"),
+            title=row.get("title"),
             rating=row.get("rating"),
+            show_id=row.get("show_id"),
+            country=row.get("country"),
+            director=row.get("director"),
             duration=row.get("duration"),
             listed_in=row.get("listed_in"),
-            description=row.get("description")
+            date_added=row.get("date_added"),
+            description=row.get("description"),
+            release_year=row.get("release_year")
         )
         for row in raw_data]
 
@@ -33,8 +33,8 @@ class Data:
     def __init__(self):
         self.movies_data = get_data()
 
-    def get_all_movies(self):
-        pass
+    def get_all_movies(self) -> List[Movie]:
+        return self.movies_data
 
     def get_movie(self):
         pass
