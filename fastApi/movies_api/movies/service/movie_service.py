@@ -27,7 +27,7 @@ def fuzz_search(look_up: str, choices: List) -> bool:
     :return:
     """
     extracted = process.extract(look_up, choices)
-    extracted_higher = [e for e in extracted if e[1] > 70]
+    extracted_higher = [e for e in extracted if e[1] > 80]
     return bool(extracted_higher)
 
 
