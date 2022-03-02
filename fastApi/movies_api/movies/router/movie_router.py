@@ -18,28 +18,19 @@ movie_router = APIRouter(
 )
 
 
-@movie_router.get("/moviesTempo", tags=["movie"])
-async def get_all():
-    """
-    Temp
-    :return:
-    """
-    return movie_service_client.get_all_movies()
-
-
 @movie_router.get("/movie", tags=["movie"])
 async def get_movie(
-        type: List[str] = Query([]),
-        cast: List[str] = Query([]),
-        title: List[str] = Query([]),
-        rating: List[str] = Query([]),
-        country: List[str] = Query([]),
-        director: List[str] = Query([]),
-        duration: List[str] = Query([]),
-        listed_in: List[str] = Query([]),
-        date_added: List[str] = Query([]),
-        description: List[str] = Query([]),
-        release_year: List[str] = Query([]),
+        type: List[str] = Query([], title='Type', description='Search by Movie Type'),
+        cast: List[str] = Query([], title='Casting', description='Search by Casting'),
+        title: List[str] = Query([], title='Movie Title', description='Search by Movie Title'),
+        rating: List[str] = Query([], title='Rating', description='Search by Rating'),
+        country: List[str] = Query([], title='Country', description='Search by Country'),
+        director: List[str] = Query([], title='Director', description='Search by Director'),
+        duration: List[str] = Query([], title='Duration', description='Search by Duration'),
+        listed_in: List[str] = Query([], title='Listed In', description='Search by Listen In'),
+        date_added: List[str] = Query([], title='Date Added', description='Search by Date Added'),
+        description: List[str] = Query([], title='Movie Description', description='Search by Movie Description'),
+        release_year: List[str] = Query([], title='Release Year', description='Search by Release Year')
 ):
     filters = {
         "type": type,
